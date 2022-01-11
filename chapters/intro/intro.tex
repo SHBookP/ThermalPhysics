@@ -1,0 +1,78 @@
+\chapter*{引子}
+\addcontentsline{toc}{chapter}{引子} \markboth{引子}{}
+
+我们处理热力学物理的方法和入门物理课程中的传统不同。因此，我们提供了这个简介来展示在接下来的几个章节中我们将讲些什么。我们以这样的逻辑结构展示主线：在这个课程中，所有的物理从逻辑上。按照它们出现的顺序，在我们的叙述中，开头的章节是熵、温度、玻尔兹曼因子、化学势、吉布斯因子和分布函数。
+
+熵是一个系统可处于的量子态的度量。一个封闭的系统可能会处于这其中的量子态的任意之一，并且（我们假定）它们是等概率的。基本统计学元素，即基本逻辑假设是，系统要么处于要么不处于这些量子态，并且这个系统等可能地处于其中任意一种可能态相同的量子态。给定$g$个可能态\footnote{即上述“可能处于的量子态”，原文：accessible state ——译者注}，熵定义为$\sigma=\ln g$。因此，这样定义的熵是能量$U$、粒子数$N$和体积$V$的函数，因为这些参数决定着$g$，当然其他参数也可能有贡献。对数的使用是出于数学上的便利：写出$10^{20}$比写出$\exp({10^{20}})$是要容易的，并且对于两个系统，$\sigma_1+\sigma_2$比$g_1g_2$更自然。
+
+当两个有着各自特定能量的系统有热接触，它们可能会交换能量：它们的总能量保持为一个常数，但在它们各自能量上的约束会增加。能量的单向传输可能会增加乘积$g_1g_2$，后者代表着组合系统的可能态。基本假设认为，从能量分配上看，最终结果是使得可能态最大化的，即越多越好、可能性也越大。这一论述是熵增定律的核心,也是热力学第二定律的一般陈述。
+
+我们将两个系统建立联系，以期它们之间可以传输能量。最可能的后果是什么呢？一个系统将获得另一个系统失去的能量，并且同时，两个系统的总熵将会增加。最终，对于给定的总能量，熵将会达到一个极大值。不难得到（见第二章），极大值在两系统的$(\partial\sigma/\partial U)_{N,V}$相等时取得。这个关于两个热接触的系统的等式正是我们期待的温度。因此，我们定义基础温度$\tau$，满足关系
+\begin{equation}
+    \frac 1\tau \equiv (\frac{\partial\sigma}{\partial U})_{N,V}.\label{DefOfT}
+\end{equation}
+使用$1/\tau$是为了确保能量从高的$\tau$向低的$\tau$流动；不需要更复杂的关系。它将与开尔文温度$T$遵从$\tau=k_BT$的关系，其中$k_B$是玻尔兹曼常数。则规定熵$S$\footnote{原文：conventional entropy ——译者注}定义为$S=k_B\sigma$。
+
+现在考虑一个十分简单的关于玻尔兹曼因子的例子，这个例子将会在第三章处理。让一个小系统有且仅有两个态，分别的能量为$0$和$\varepsilon$，和一个我们称之为热库\footnote{原文：reservoir ——译者注}的大系统建立热接触。这一联合系统的总能量是$U_0$；当小系统处于能量为$0$的态时，热库的能量是$U_0$，并且有$g(U_0)$种可能态数。当小系统处于能量为$\varepsilon$的态时，热库的能量是$U_0-\varepsilon$，并且有$g(U_0-\varepsilon)$种可能态数。由基本假设，在小系统中找到能量为$\varepsilon$的概率与找到能量为$0$的概率之比为
+\begin{equation}
+    \frac{P\left( \varepsilon \right)}{P\left( 0 \right)}=\frac{g\left( U_0-\varepsilon \right)}{g\left( U_0 \right)}=\frac{\exp \left( \sigma \left( U_0-\varepsilon \right) \right)}{\exp \left( \sigma \left( U_0 \right) \right)}.\label{RatOfTwoSta}
+\end{equation}
+热库的能量$\sigma$可以写成泰勒级数的形式如下
+\begin{equation}
+    \sigma(U_0-\varepsilon)\simeq\sigma(U_0)-\varepsilon(\partial \sigma/\partial U_0)=\sigma(U_0)-\varepsilon\tau,\label{TaySerOfSig}
+\end{equation}
+这是按照温度的定义\eqref{DefOfT}得到的。更高阶的项在展开中可以丢掉。在\eqref{RatOfTwoSta}的约分中，约去$\exp(\sigma(U_0))$项并通过\eqref{TaySerOfSig}替代，得到
+\begin{equation}
+    P(\varepsilon)/P(0)=\exp(-\varepsilon/\tau).\label{Equ4}的方法，我们有
+\end{equation}
+这就是玻尔兹曼的结果。为了展示其用处，我们计算两个处于温度$\tau$下的通过一个热库热相互作用的态系统的热力学平均能量$\left< \varepsilon\right>$：
+\begin{equation}
+    \begin{aligned}
+        \left< \varepsilon \right> =&\sum_{\begin{array}{c}
+            i\\
+        \end{array}}{\varepsilon _iP(\varepsilon _i)}
+        \\
+        =&0\cdot P\left( 0 \right) +\varepsilon P\left( \varepsilon \right) 
+        \\
+        =&\frac{\varepsilon \exp \left( -\varepsilon /t \right)}{1+\exp \left( -\varepsilon /t \right)}
+    \end{aligned}.
+\end{equation}
+这里已经使用了我们的概率归一化条件：
+\begin{equation}
+    P(0)+P(\varepsilon)=1.
+\end{equation}
+这一方法可以直接推广到求温度$\tau$下的谐振体的平均能量。我们将在第四章中做这一点，作为普朗克辐射定律的起源的第一步。
+
+这个理论的最重要的推广是对可以通过热库传递能量和粒子的系统的。对于两个扩散和有热接触的系统，熵在能量和粒子交换下达到一个极大值。不仅两个系统的$(\partial\sigma/\partial U)_{N,V}$相同，它们的$(\partial\sigma/\partial N)_{U,V}$也相同，其中$N$是给定种类\footnote{原文：species ——译者注}下的粒子的数目。新的恒等条件是引入一个新的量，化学势$\mu$，满足
+\begin{equation}
+    -\frac{\mu}{\tau}=\left( \frac{\partial \sigma}{\partial N} \right) _{U,V}.\label{DefOfChePot}
+\end{equation}
+对于两个热和扩散接触的系统，有$\tau_1=\tau_2$和$\mu_1=\mu_2$。\eqref{DefOfChePot}中的负号是为了以达到平衡，须确保化学势是从高出向低处流动的。
+
+第五章中的吉布斯因子是玻尔兹曼因子的一个扩展，允许我们处理粒子交换的系统。最简单的粒子是一个有两种状态的系统，其中一个的粒子数是$0$，能量是$0$，另一个的粒子数是$1$，能量是$\varepsilon$。这个系统和一个温度为$\tau$、化学势为$\mu$的热库建立联系。类似于\eqref{TaySerOfSig}，我们有
+\begin{equation}
+    \begin{aligned}
+        \sigma \left( U_0-\varepsilon ;N_0-1 \right) =&\sigma \left( U_0;N_0 \right) -\varepsilon \frac{\partial \sigma}{\partial U_0}-1\cdot \frac{\partial \sigma}{\partial N_0}
+        \\
+        =&\sigma \left( U_0;N_0 \right) -\varepsilon /\tau -\mu /\tau 
+    \end{aligned}
+\end{equation}
+通过类似于\eqref{Equ4}的方法，我们有
+\begin{equation}
+    P(1,\varepsilon)/P(0,0)=\exp((\mu-\varepsilon)/\tau).\label{Equ9}
+\end{equation}
+这是系统被粒子数为$1$、能量为$\varepsilon$的态占据与不被占据、能量为$0$的概率比。由归一化易得\eqref{Equ9}的结果为
+\begin{equation}
+    P(1,\varepsilon)=\frac{1}{\exp((\varepsilon-\mu)/\tau)+1}.\label{FerDisFun}
+\end{equation}
+这个结果就是所谓费米-狄拉克分布函数，尤其适用于描述金属理论中的高温高压状电子气（见第七章）。
+
+理想气体的经典分布函数是\eqref{FerDisFun}在其远小于$1$下的极限：
+\begin{equation}
+    P(1,\varepsilon)\simeq\exp((\varepsilon-\mu)/\tau).
+\end{equation}
+在第六章中，理想气体的性质将从这一结果得到。
+
+亥姆霍兹自由能$F\coloneqq U-\tau\sigma$是计算中的一个很重要的函数，这是因为一旦我们已知通过能量本征值计算$F$的方法，关系$(\partial F/\partial\tau)_{N,V}=-\sigma$便是关于熵的最简单的那个。其他热动力学函数的计算的强有力的工具将会在文章中提到。本文剩下的大部分会注重一些很有用处并且可以说明主热力学函数的释义和效果的应用部分。
+
+通过分子的、原子的、电子的系统，热力学物理联系起世界每天的对象，天体、生化过程。它将我们世界的两个部分联合起来：微观的和宏观的。
